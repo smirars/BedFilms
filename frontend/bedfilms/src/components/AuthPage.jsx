@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import './AuthPage.css'; 
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './AuthPage.css'
 
 const AuthPage = () => {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,7 +19,7 @@ const AuthPage = () => {
     
     const data = await response.json();
     if (response.ok) {
-      console.log('Токен авторизации:', data.token);
+        navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
     }
@@ -35,7 +37,7 @@ const AuthPage = () => {
   
     const data = await response.json();
     if (response.ok) {
-      console.log('Токен регистрации:', data.token);
+      navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
     }
