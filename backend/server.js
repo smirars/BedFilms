@@ -8,14 +8,16 @@ dotenv.config();
 
 const app = express();
 
-// Подключаем MongoDB
 connectDB();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Маршруты
+
+app.get('/', (req, res) => {
+    res.send('Сервер работает!');
+});
+
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
