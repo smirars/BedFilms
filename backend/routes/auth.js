@@ -16,6 +16,7 @@ router.post('/register', async (req, res) => {
     }
 
     user = new User({ username, password });
+    console.log('Сохраняем пользователя:', user)
     await user.save();
 
     const payload = { userId: user._id };
