@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './WelcomePage.css';
+import './Navbar.css'
 
 const WelcomePage = () => {
   const location = useLocation();
@@ -8,17 +9,8 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page">
-      <nav className="navbar">
-        <ul className="nav-links">
-          <li><a href="/catalog">Каталог</a></li>
-          <li><a href="/actors">Актеры</a></li>
-          <li><a href="/favorites">Избранное</a></li>
-        </ul>
-        <div className="profile">
-          <a href="/profile">Профиль</a>
-        </div>
-      </nav>
-
+      
+      <Navbar />
       
       <main className="main-content">
         <h1>Добро пожаловать!</h1>
