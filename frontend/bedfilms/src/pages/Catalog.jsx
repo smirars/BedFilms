@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Film from '../components/Film';
-import './Catalog.css';
+// import './Catalog.css';
 
 const films = [
   { id: 1, name: "Фильм 1", description: "Описание фильма 1", cover: "cover1.jpg" },

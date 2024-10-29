@@ -1,7 +1,7 @@
 // src/components/Film.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Film.css';
+// import './Film.css';
 
 const Film = ({ film }) => {
   return (
