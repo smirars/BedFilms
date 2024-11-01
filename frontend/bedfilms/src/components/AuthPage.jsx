@@ -19,6 +19,7 @@ const AuthPage = () => {
     
     const data = await response.json();
     if (response.ok) {
+        localStorage.setItem('user', JSON.stringify({ username: login }));
         navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
@@ -37,6 +38,7 @@ const AuthPage = () => {
   
     const data = await response.json();
     if (response.ok) {
+      localStorage.setItem('user', JSON.stringify({ username: login }));
       navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
