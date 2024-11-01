@@ -19,7 +19,14 @@ const AuthPage = () => {
     
     const data = await response.json();
     if (response.ok) {
-        localStorage.setItem('user', JSON.stringify({ username: login }));
+        const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            username: login,
+            avatar: storedUser.avatar || null, // сохраняем avatar, если он есть
+          })
+        );  
         navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
@@ -38,7 +45,14 @@ const AuthPage = () => {
   
     const data = await response.json();
     if (response.ok) {
-      localStorage.setItem('user', JSON.stringify({ username: login }));
+      const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            username: login,
+            avatar: storedUser.avatar || null, // сохраняем avatar, если он есть
+          })
+        );
       navigate('/welcome', { state: { username: login, password } })
     } else {
       console.log('Ошибка:', data.msg);
