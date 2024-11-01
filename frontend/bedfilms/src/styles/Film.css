@@ -13,4 +13,8 @@
   .favourite-toggle.active {
     color: #e63946; /* цвет активного сердечка */
   }
+
+  .film-card {
+    position: relative;
+  }
   
