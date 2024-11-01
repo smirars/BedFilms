@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import './WelcomePage.css';
-import './Navbar.css'
+import '../styles/WelcomePage.css';
+import '../styles/Navbar.css'
 
 const WelcomePage = () => {
   const location = useLocation();
