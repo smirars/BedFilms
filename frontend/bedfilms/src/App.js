@@ -6,6 +6,7 @@ import WelcomePage from './components/WelcomePage'
 import Catalog from './pages/Catalog'
 import Actors from './pages/Actors'
 import Favorites from './pages/Favorite'
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path="/catalog/:film_name" element={<div>Film Detail Page</div>} />
               <Route path="/actors" element={<Actors />} />
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/profile" element={<Profile />} />
           </Routes>
       </Router>
     );   
