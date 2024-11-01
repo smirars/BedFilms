@@ -1,4 +1,3 @@
-// src/pages/Catalog.jsx
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Film from '../components/Film';
