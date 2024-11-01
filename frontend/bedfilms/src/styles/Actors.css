@@ -1,0 +1,36 @@
+.actors-page {
+    padding: 20px;
+  }
+  
+  .actor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .actor-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .actor-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .actor-name {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .actor-films {
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
