@@ -19,9 +19,11 @@ const Profile = () => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setAvatar(reader.result);
-      const userData = { username, avatar: reader.result };
-      localStorage.setItem('user', JSON.stringify(userData));
+      const newAvatar = reader.result;
+      setAvatar(newAvatar);
+
+      const updatedUser = { username, avatar: newAvatar };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
     };
     if (file) {
       reader.readAsDataURL(file);
