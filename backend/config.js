@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: './backend/.env' }); // Загружаем переменные из .env
+dotenv.config({ path: './backend/.env' }); 
 
-console.log('MONGO_URI:', process.env.MONGO_URI); // Добавим лог для проверки
+console.log('MONGO_URI:', process.env.MONGO_URI); 
 
 
 
