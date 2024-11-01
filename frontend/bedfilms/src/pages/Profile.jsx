@@ -1,6 +1,7 @@
 // src/pages/Profile.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import '../styles/Profile.css'
 
 const Profile = () => {
   const [username, setUsername] = useState('');
