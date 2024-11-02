@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
-import AuthPage from './components/AuthPage'
+import AuthPage from './pages/AuthPage'
 import WelcomePage from './components/WelcomePage'
 import Catalog from './pages/Catalog'
 import Actors from './pages/Actors'
 import Favorites from './pages/Favorite'
 import Profile from './pages/Profile'
+import Registration from './pages/Registration' 
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/actors" element={<Actors />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/registration" element={<Registration />} />
           </Routes>
       </Router>
     );   
