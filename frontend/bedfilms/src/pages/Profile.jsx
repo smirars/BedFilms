@@ -15,27 +15,32 @@ const Profile = () => {
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
-            setUser({
-                ...user,
-                ...storedUser,
-            });
+          setUser({
+            ...user,
+            ...storedUser,
+            firstName: storedUser.firstName || 'не указан',
+            lastName: storedUser.lastName || 'не указан',
+            email: storedUser.email || 'не указан',
+            phone: storedUser.phone || 'не указан',
+          });
         }
-    }, []);
-
-  const handleAvatarChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const newAvatar = reader.result;
-      setUser((prevUser) => ({ ...prevUser, avatar: newAvatar }));
-
-      const updatedUser = { ...user, avatar: newAvatar };
-      localStorage.setItem('user', JSON.stringify(updatedUser));
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
+      }, []);
+      
+      const handleAvatarChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const newAvatar = reader.result;
+          setUser((prevUser) => ({ ...prevUser, avatar: newAvatar }));
+      
+          const updatedUser = { ...user, avatar: newAvatar };
+          localStorage.setItem('user', JSON.stringify(updatedUser));
+        };
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
+      
 
   return (
     <div className="profile-page">

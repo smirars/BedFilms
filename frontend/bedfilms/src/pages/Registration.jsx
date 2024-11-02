@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bcrypt from 'bcryptjs';
 // import '../styles/Registration.css';
 
 const Registration = () => {
@@ -20,43 +19,49 @@ const Registration = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  
+const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError('Пароли не совпадают');
       return;
     }
     try {
-        const response = await fetch('http://localhost:5000/api/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+        }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        // Сохраняем все данные пользователя в localStorage
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
             username: formData.username,
-            password: formData.password,
-          }),
-        });
-    
-        const data = await response.json();
-        
-        if (response.ok) {
-          localStorage.setItem(
-            'user',
-            JSON.stringify({
-              username: formData.username,
-              avatar: null,
-            })
-          );
-    
-          navigate('/welcome');
-        } else {
-          setError(data.msg);
-        }
-      } catch (error) {
-        console.error('Ошибка регистрации:', error);
-        setError('Ошибка при регистрации. Попробуйте снова.');
+            firstName: formData.firstName || 'не указан',
+            lastName: formData.lastName || 'не указан',
+            email: formData.email || 'не указан',
+            phone: formData.phone || 'не указан',
+            avatar: null,
+          })
+        );
+  
+        navigate('/welcome');
+      } else {
+        setError(data.msg);
       }
+    } catch (error) {
+      console.error('Ошибка регистрации:', error);
+      setError('Ошибка при регистрации. Попробуйте снова.');
+    }
   };
 
   return (

@@ -34,11 +34,13 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  console.log('Проверяем пользователя:', req.body);
 
   try {
     const user = await User.findOne({ username });
 
     if (!user) {
+      console.log(`Пользователь ${username} не найден`);
       return res.status(400).json({ msg: 'Неверные учетные данные' });
     }
 

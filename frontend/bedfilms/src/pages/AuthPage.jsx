@@ -9,6 +9,11 @@ const AuthPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log('Отправляем логин:', login, 'и пароль:', password);
+    if (!login || !password) {
+      console.log('Логин и пароль не должны быть пустыми');
+      return;
+    }
     const response = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
@@ -19,24 +24,27 @@ const AuthPage = () => {
     
     const data = await response.json();
     if (response.ok) {
-        const storedUser = JSON.parse(localStorage.getItem('user')) || {};
-        localStorage.setItem(
-          'user',
-          JSON.stringify({
-            username: login,
-            avatar: storedUser.avatar || null,
-          })
-        );  
-        navigate('/welcome', { state: { username: login, password } })
+      const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+      // Обновляем данные в localStorage при успешной авторизации
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          ...storedUser,  // сохраняем имеющиеся данные, если есть
+          username: login,
+          avatar: storedUser.avatar || null,
+        })
+      );
+      navigate('/welcome');
     } else {
       console.log('Ошибка:', data.msg);
     }
   };
   
+  
 
   return (
     <div className="auth-container">
-      <form className="auth-form">
+      <form className="auth-form" onSubmit={handleLogin}>
         <h2>Авторизация</h2>
         <div className="input-group">
           <label htmlFor="login">Логин</label>
@@ -59,7 +67,7 @@ const AuthPage = () => {
           />
         </div>
         <div className="button-group">
-          <button type="submit" onClick={handleLogin}>
+          <button type="submit" onSubmit={handleLogin}>
             Авторизация
           </button>
           <button type="button" onClick={() => navigate('/registration')}>
