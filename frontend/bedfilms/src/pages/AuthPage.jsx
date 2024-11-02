@@ -32,32 +32,6 @@ const AuthPage = () => {
       console.log('Ошибка:', data.msg);
     }
   };
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/auth/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username: login, password }),
-    });
-  
-    const data = await response.json();
-    if (response.ok) {
-      const storedUser = JSON.parse(localStorage.getItem('user')) || {};
-        localStorage.setItem(
-          'user',
-          JSON.stringify({
-            username: login,
-            avatar: storedUser.avatar || null, // сохраняем avatar, если он есть
-          })
-        );
-      navigate('/welcome', { state: { username: login, password } })
-    } else {
-      console.log('Ошибка:', data.msg);
-    }
-  };
   
 
   return (
@@ -88,7 +62,7 @@ const AuthPage = () => {
           <button type="submit" onClick={handleLogin}>
             Авторизация
           </button>
-          <button type="button" onClick={handleRegister}>
+          <button type="button" onClick={() => navigate('/registration')}>
             Регистрация
           </button>
         </div>
