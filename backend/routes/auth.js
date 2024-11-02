@@ -14,8 +14,10 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ msg: 'Пользователь уже существует' });
     }
 
-    user = new User({ username, password });
-    console.log('Сохраняем пользователя:', user)
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    user = new User({ username, password: hashedPassword });
+    console.log('Сохраняем пользователя:', user);
     await user.save();
 
     const payload = { userId: user._id };
