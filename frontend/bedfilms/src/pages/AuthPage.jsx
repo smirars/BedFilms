@@ -24,7 +24,7 @@ const AuthPage = () => {
           'user',
           JSON.stringify({
             username: login,
-            avatar: storedUser.avatar || null, // сохраняем avatar, если он есть
+            avatar: storedUser.avatar || null,
           })
         );  
         navigate('/welcome', { state: { username: login, password } })
