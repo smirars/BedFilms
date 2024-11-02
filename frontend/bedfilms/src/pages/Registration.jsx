@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 // import '../styles/Registration.css';
 
 const Registration = () => {
@@ -25,14 +26,37 @@ const Registration = () => {
       setError('Пароли не совпадают');
       return;
     }
-    localStorage.setItem(
-      'user',
-      JSON.stringify({
-        ...formData,
-        avatar: null,
-      })
-    );
-    navigate('/welcome');
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: formData.username,
+            password: formData.password,
+          }),
+        });
+    
+        const data = await response.json();
+        
+        if (response.ok) {
+          localStorage.setItem(
+            'user',
+            JSON.stringify({
+              username: formData.username,
+              avatar: null,
+            })
+          );
+    
+          navigate('/welcome');
+        } else {
+          setError(data.msg);
+        }
+      } catch (error) {
+        console.error('Ошибка регистрации:', error);
+        setError('Ошибка при регистрации. Попробуйте снова.');
+      }
   };
 
   return (
