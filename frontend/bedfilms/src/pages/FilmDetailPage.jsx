@@ -8,17 +8,25 @@ const FilmDetailPage = () => {
   const { film } = state || {};
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [user, setUser] = useState({ username: '', avatar: '' });
 
   useEffect(() => {
     const savedComments = JSON.parse(localStorage.getItem(`comments_${film.id}`)) || [];
     setComments(savedComments);
   }, [film.id]);
 
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
+
   const handleAddComment = () => {
-    if (newComment.trim()) {
+    if (newComment.trim() && user.username) {
       const updatedComments = [
         ...comments,
-        { id: Date.now(), avatar: 'default-avatar.png', username: 'User', text: newComment }
+        { id: Date.now(), avatar: user.avatar, username: user.username, text: newComment }
       ];
       setComments(updatedComments);
       localStorage.setItem(`comments_${film.id}`, JSON.stringify(updatedComments));
