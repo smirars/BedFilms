@@ -41,8 +41,9 @@ const FilmDetailPage = () => {
   };
 
   return (
-    <div className="film-detail-page">
+    <div>
       <Navbar />
+      <div className="film-detail-page">
       <div className="film-content">
         <div className="video-section">
           <video controls className="film-player">
@@ -85,6 +86,7 @@ const FilmDetailPage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
