@@ -36,6 +36,9 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: 10px;
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
   }
   
   .comment-avatar {
@@ -66,5 +69,20 @@
   .add-comment button {
     display: block;
     width: 100%;
+  }
+
+  .delete-comment-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: #ff4d4f;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .delete-comment-button:hover {
+    color: #ff1a1a;
   }
   

@@ -34,6 +34,12 @@ const FilmDetailPage = () => {
     }
   };
 
+  const handleDeleteComment = (commentId) => {
+    const updatedComments = comments.filter(comment => comment.id !== commentId);
+    setComments(updatedComments);
+    localStorage.setItem(`comments_${film.id}`, JSON.stringify(updatedComments));
+  };
+
   return (
     <div className="film-detail-page">
       <Navbar />
@@ -58,6 +64,14 @@ const FilmDetailPage = () => {
                   <h4>{comment.username}</h4>
                   <p>{comment.text}</p>
                 </div>
+                {comment.username === user.username && (
+                  <button
+                    className="delete-comment-button"
+                    onClick={() => handleDeleteComment(comment.id)}
+                  >
+                    ×
+                  </button>
+                )}
               </div>
             ))}
           </div>
