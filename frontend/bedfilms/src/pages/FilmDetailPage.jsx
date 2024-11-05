@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../styles/FilmDetailPage.css';
 
+const films = [
+  { id: 1, name: "Фильм 1", description: "Описание фильма 1", cover: "cover1.jpg", videoUrl: "video1.mp4" },
+  { id: 2, name: "Фильм 2", description: "Описание фильма 2", cover: "cover2.jpg", videoUrl: "video2.mp4" },
+  { id: 3, name: "Фильм 3", description: "Описание фильма 3", cover: "cover3.jpg", videoUrl: "video3.mp4" },
+];
+
+
 const FilmDetailPage = () => {
-  const { state } = useLocation();
-  const { film } = state || {};
+  const { id } = useParams(); 
+  const film = films.find((film) => film.id === parseInt(id));
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState({ username: '', avatar: '' });
 
   useEffect(() => {
-    const savedComments = JSON.parse(localStorage.getItem(`comments_${film.id}`)) || [];
-    setComments(savedComments);
-  }, [film.id]);
+    if (film) {
+      const savedComments = JSON.parse(localStorage.getItem(`comments_${film.id}`)) || [];
+      setComments(savedComments);
+    }
+  }, [film]);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -39,6 +48,10 @@ const FilmDetailPage = () => {
     setComments(updatedComments);
     localStorage.setItem(`comments_${film.id}`, JSON.stringify(updatedComments));
   };
+
+  if (!film) {
+    return <div>Фильм не найден</div>;
+  }
 
   return (
     <div>
