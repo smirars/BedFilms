@@ -48,7 +48,7 @@ const ActorDetailPage = () => {
           <ul>
             {actor.films.map((film, index) => (
               <li key={index}>
-                <Link to={`/films/${film}`}>{film}</Link>
+                <Link to={`/films/${index + 1}`}>{film}</Link>
               </li>
             ))}
           </ul>
