@@ -26,7 +26,7 @@ const Film = ({ film }) => {
   };
 
   const handleFilmClick = () => {
-    navigate(`/films/${film.id}`, { state: { film } });
+    navigate(`/films/${film.name}`, { state: { film } });
   };
 
   return (
