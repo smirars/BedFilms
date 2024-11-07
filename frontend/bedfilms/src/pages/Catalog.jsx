@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from '../components/Navbar';
 import Film from '../components/Film';
 // import './Catalog.css';
@@ -28,7 +28,7 @@ const Catalog = () => {
         />
       </div>
       <main className="film-list">
-        {films.map((film) => (
+        {filteredFilms.map((film) => (
           <Film key={film.id} film={film} />
         ))}
       </main>
