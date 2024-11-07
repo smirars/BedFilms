@@ -31,11 +31,25 @@ const actors = [
 ];
 
 const Actors = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredActors = actors.filter((actor) =>
+    actor.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="actors-page">
       <Navbar />
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Поиск по имени..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
       <main className="actor-list">
-        {actors.map((actor) => (
+        {filteredActors.map((actor) => (
           <Link key={actor.id} to={`/actors/${actor.id}`}>
             <ActorCard actor={actor} />
           </Link>
