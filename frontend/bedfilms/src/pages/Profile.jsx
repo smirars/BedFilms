@@ -12,6 +12,9 @@ const Profile = () => {
         phone: 'не указан',
     });
 
+    const [isEditing, setIsEditing] = useState(false);
+    const [editData, setEditData] = useState(user);
+
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
@@ -40,6 +43,22 @@ const Profile = () => {
           reader.readAsDataURL(file);
         }
       };
+
+      const handleEditButtonClick = () => {
+        setIsEditing(true);
+        setEditData(user);
+      };
+
+      const handleSaveButtonClick = () => {
+        setUser(editData);
+        setIsEditing(false);
+        localStorage.setItem('user', JSON.stringify(editData));
+      };
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setEditData((prevData) => ({ ...prevData, [name]: value }));
+      };
       
 
   return (
@@ -55,11 +74,65 @@ const Profile = () => {
           <input type="file" accept="image/*" onChange={handleAvatarChange} />
         </div>
         <h3>Профиль пользователя</h3>
-        <p>Имя: {user.firstName}</p>
-        <p>Фамилия: {user.lastName}</p>
-        <p>Логин: {user.username}</p>
-        <p>Электронная почта: {user.email}</p>
-        <p>Телефон: {user.phone}</p>
+        {isEditing ? (
+                    <div className="edit-form">
+                        <label>
+                            Имя:
+                            <input
+                                type="text"
+                                name="firstName"
+                                value={editData.firstName}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Фамилия:
+                            <input
+                                type="text"
+                                name="lastName"
+                                value={editData.lastName}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Логин:
+                            <input
+                                type="text"
+                                name="username"
+                                value={editData.username}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Электронная почта:
+                            <input
+                                type="email"
+                                name="email"
+                                value={editData.email}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Телефон:
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={editData.phone}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <button onClick={handleSaveButtonClick}>Сохранить</button>
+                    </div>
+                ) : (
+                    <>
+                        <p>Имя: {user.firstName}</p>
+                        <p>Фамилия: {user.lastName}</p>
+                        <p>Логин: {user.username}</p>
+                        <p>Электронная почта: {user.email}</p>
+                        <p>Телефон: {user.phone}</p>
+                        <button onClick={handleEditButtonClick}>Изменить профиль</button>
+                    </>
+                )}
       </div>
     </div>
   );
