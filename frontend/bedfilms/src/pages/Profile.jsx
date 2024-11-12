@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../styles/Profile.css'
 
 const Profile = () => {
@@ -134,6 +135,7 @@ const Profile = () => {
                     </>
                 )}
       </div>
+      <Footer />
     </div>
   );
 };

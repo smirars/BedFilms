@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Navbar from '../components/Navbar';
 import Film from '../components/Film';
+import Footer from '../components/Footer';
 // import './Catalog.css';
 
 const films = [
@@ -32,6 +33,7 @@ const Catalog = () => {
           <Film key={film.id} film={film} />
         ))}
       </main>
+      <Footer />
     </div>
   );
 };

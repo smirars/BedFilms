@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../styles/WelcomePage.css';
 import '../styles/Navbar.css'
+import Footer from '../components/Footer';
 
 const WelcomePage = () => {
   const location = useLocation();
@@ -20,20 +21,7 @@ const WelcomePage = () => {
       </main>
 
 
-      <footer className="footer">
-        <p>&copy; 2024 Все права защищены</p>
-        <div className="social-icons">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer">
-            <i className="fab fa-facebook-f"></i> 
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer">
-            <i className="fab fa-twitter"></i> 
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
-            <i className="fab fa-instagram"></i> 
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

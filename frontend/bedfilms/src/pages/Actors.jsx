@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import ActorCard from '../components/ActorCard';
+import Footer from '../components/Footer';
 
 const actors = [
   {
@@ -52,6 +53,7 @@ const Actors = () => {
           </Link>
         ))}
       </main>
+      <Footer />
     </div>
   );
 };
