@@ -16,7 +16,7 @@ function App() {
       <Router>
           <Routes>
               <Route path="/" element={<AuthPage />} />
-              <Route path="/welcome" element={<WelcomePage />} />
+              <Route path="/home" element={<WelcomePage />} />
               <Route path="/catalog" element={<Catalog />} />
               <Route path="/films/:id" element={<FilmDetailPage />} />
               <Route path="/actors" element={<Actors />} />

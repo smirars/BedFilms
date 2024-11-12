@@ -54,7 +54,7 @@ const handleSubmit = async (e) => {
           })
         );
   
-        navigate('/welcome');
+        navigate('/home');
       } else {
         setError(data.msg);
       }
