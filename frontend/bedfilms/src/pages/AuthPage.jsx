@@ -34,7 +34,7 @@ const AuthPage = () => {
           avatar: storedUser.avatar || null,
         })
       );
-      navigate('/welcome');
+      navigate('/home');
     } else {
       console.log('Ошибка:', data.msg);
     }
