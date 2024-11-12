@@ -3,9 +3,9 @@ import React from 'react';
 const ActorCard = ({ actor }) => {
   return (
     <div className="actor-card">
-      <img src={actor.photo} alt={`${actor.firstName} ${actor.lastName}`} className="actor-photo" />
+      <img src={actor.photo} alt={`${actor.name}`} className="actor-photo" />
       <h3 className="actor-name">
-        {actor.firstName} {actor.lastName}
+        {actor.name}
       </h3>
       <p className="actor-films">
         Фильмы: {actor.films.join(', ')}

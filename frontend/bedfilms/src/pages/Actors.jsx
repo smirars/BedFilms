@@ -6,24 +6,21 @@ import ActorCard from '../components/ActorCard';
 const actors = [
   {
     id: 1,
-    firstName: "Кристиан",
-    lastName: "Бейл",
+    name: "Кристиан Бейл",
     photo: "actor1.jpg",
     films: ["Фильм 1", "Фильм 2"],
     biography: "Краткая биография Актера 1...",
   },
   {
     id: 2,
-    firstName: "Леонардо",
-    lastName: "Ди Каприо",
+    name: "Леонардо ди Каприо",
     photo: "actor2.jpg",
     films: ["Фильм 2", "Фильм 3"],
     biography: "Краткая биография Актера 2...",
   },
   {
     id: 3,
-    firstName: "Том",
-    lastName: "Круз",
+    name: "Том Круз",
     photo: "actor3.jpg",
     films: ["Фильм 1", "Фильм 3"],
     biography: "Краткая биография Актера 3...",
@@ -34,7 +31,7 @@ const Actors = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredActors = actors.filter((actor) =>
-    actor.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+    actor.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
