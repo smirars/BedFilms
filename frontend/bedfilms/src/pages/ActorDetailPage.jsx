@@ -5,27 +5,24 @@ import Navbar from '../components/Navbar';
 const actors = [
   {
     id: 1,
-    firstName: "Актёр",
-    lastName: "1",
+    name: "Кристиан Бейл",
     photo: "actor1.jpg",
     films: ["Фильм 1", "Фильм 2"],
-    biography: "Краткая биография Актера 1...",
+    biography: "Краткая биография...",
   },
   {
     id: 2,
-    firstName: "Актёр",
-    lastName: "2",
+    name: "Леонардо ди Каприо",
     photo: "actor2.jpg",
     films: ["Фильм 2", "Фильм 3"],
-    biography: "Краткая биография Актера 2...",
+    biography: "Краткая биография...",
   },
   {
     id: 3,
-    firstName: "Актёр",
-    lastName: "3",
+    name: "Том Круз",
     photo: "actor3.jpg",
     films: ["Фильм 1", "Фильм 3"],
-    biography: "Краткая биография Актера 3...",
+    biography: "Краткая биография...",
   },
 ];
 
@@ -40,10 +37,10 @@ const ActorDetailPage = () => {
       <Navbar />
       <div className="actor-detail-content">
         <div className="actor-photo">
-          <img src={actor.photo} alt={`${actor.firstName} ${actor.lastName}`} />
+          <img src={actor.photo} alt={`${actor.name}`} />
         </div>
         <div className="actor-info">
-          <h2>{actor.firstName} {actor.lastName}</h2>
+          <h2>{actor.name}</h2>
           <h3>Фильмы:</h3>
           <ul>
             {actor.films.map((film, index) => (
