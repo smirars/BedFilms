@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import Navbar from '../components/Navbar';
 import Film from '../components/Film';
 import Footer from '../components/Footer';
+import pulpFictionCover from '../images/Pulp_Fiction.jpg';
+import MadDogs from '../images/Mad_dogs.jpg';
+import Interstellar from "../images/Interstellar.jpg"
 // import './Catalog.css';
 
 const films = [
-  { id: 1, name: "Криминальное чтиво", description: "Описание фильма 1", cover: "cover1.jpg" },
-  { id: 2, name: "Бешеные псы", description: "Описание фильма 2", cover: "cover2.jpg" },
-  { id: 3, name: "Интерстеллар", description: "Описание фильма 3", cover: "cover3.jpg" },
+  { id: 1, name: "Криминальное чтиво", description: `Двое бандитов Винсент Вега и Джулс Винфилд проводят время в философских беседах в перерыве между разборками и «решением проблем» с должниками своего криминального босса Марселласа Уоллеса. Параллельно разворачивается три истории.`, cover: pulpFictionCover },
+  { id: 2, name: "Бешеные псы", description: `Это должно было стать идеальным преступлением. Задумав ограбить ювелирный магазин, криминальный босс Джо Кэбот собрал вместе шестерых опытных и совершенно незнакомых друг с другом преступников. Но с самого начала все пошло не так, и обычный грабеж превратился в кровавую бойню.`, cover: MadDogs },
+  { id: 3, name: "Интерстеллар", description: `Наше время на Земле подошло к концу, команда исследователей берет на себя самую важную миссию в истории человечества; путешествуя за пределами нашей галактики, чтобы узнать есть ли у человечества будущее среди звезд.`, cover: Interstellar },
 ];
 
 const Catalog = () => {
