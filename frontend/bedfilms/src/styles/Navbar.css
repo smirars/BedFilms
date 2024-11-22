@@ -16,3 +16,8 @@
     text-decoration: none;
     font-size: 18px;
   }
+
+  .nav-links .profile {
+    position: absolute;
+    right: 20px;
+  }
