@@ -25,11 +25,10 @@ const AuthPage = () => {
     const data = await response.json();
     if (response.ok) {
       const storedUser = JSON.parse(localStorage.getItem('user')) || {};
-      // Обновляем данные в localStorage при успешной авторизации
       localStorage.setItem(
         'user',
         JSON.stringify({
-          ...storedUser,  // сохраняем имеющиеся данные, если есть
+          ...storedUser,
           username: login,
           avatar: storedUser.avatar || null,
         })
