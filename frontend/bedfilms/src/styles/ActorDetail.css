@@ -1,0 +1,18 @@
+.actor-detail-content {
+    padding: 15px;
+}
+
+.actor-face img {
+    width: 200px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+  }
+
+.actor-biography {
+    float: right;
+}
+
+.films-list {
+    list-style: none;
+}
