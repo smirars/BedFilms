@@ -1,88 +1,140 @@
 .film-detail-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .film-content {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-  .video-section {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .film-player {
-    width: 100%;
-    height: auto;
-  }
-  
-  .film-info {
-    margin-top: 10px;
-  }
-  
-  .comments-section {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .comments-list {
-    margin-bottom: 20px;
-  }
-  
-  .comment {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    position: relative;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .comment-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .comment-content h4 {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .comment-content p {
-    margin: 2px 0 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .add-comment textarea {
-    width: 100%;
-    height: 60px;
-    margin-bottom: 10px;
-  }
-  
-  .add-comment button {
-    display: block;
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
 
-  .delete-comment-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
-    border: none;
-    color: #ff4d4f;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .delete-comment-button:hover {
-    color: #ff1a1a;
-  }
-  
+.film-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.video-section {
+  flex: 2;
+  padding: 20px;
+  position: relative;
+}
+
+.film-player {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.film-info {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.film-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.film-info p {
+  font-size: 16px;
+  color: #555;
+}
+
+.comments-section {
+  flex: 1;
+  max-width: 400px;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  height: 100%;
+}
+
+.comments-list {
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #007bff;
+}
+
+.comment-content h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.comment-content p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-comment textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.add-comment textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-comment button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-comment button:hover {
+  background-color: #0056b3;
+}
+
+.delete-comment-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.delete-comment-button:hover {
+  color: #ff1a1a;
+}
