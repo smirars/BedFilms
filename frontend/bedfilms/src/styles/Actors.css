@@ -1,36 +1,45 @@
-.actors-page {
-    padding: 20px;
-  }
+
   
   .actor-list {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
   }
   
   .actor-card {
-    width: 200px;
+    margin: 15px;
+    width: 450px;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+
+  .actor-card::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
   
   .actor-photo {
-    width: 100%;
+    width: 200px;
     height: auto;
     border-radius: 8px;
+    float: left;
   }
   
   .actor-name {
     font-size: 1.2em;
     margin-top: 10px;
+    float: right;
   }
   
   .actor-films {
     color: #555;
     font-size: 0.9em;
     margin-top: 5px;
+    float: right;
   }
   

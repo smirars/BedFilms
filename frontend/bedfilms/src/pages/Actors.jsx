@@ -3,26 +3,30 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import ActorCard from '../components/ActorCard';
 import Footer from '../components/Footer';
+import Bale from '../images/Bale.jpg'
+import Cruise from '../images/tomcruise.jpg'
+import DiCaprio from '../images/dicaprio.jpg'
+import '../styles/Actors.css'
 
 const actors = [
   {
     id: 1,
     name: "Кристиан Бейл",
-    photo: "actor1.jpg",
+    photo: Bale,
     films: ["Фильм 1", "Фильм 2"],
     biography: "Краткая биография Актера 1...",
   },
   {
     id: 2,
     name: "Леонардо ди Каприо",
-    photo: "actor2.jpg",
+    photo: DiCaprio,
     films: ["Фильм 2", "Фильм 3"],
     biography: "Краткая биография Актера 2...",
   },
   {
     id: 3,
     name: "Том Круз",
-    photo: "actor3.jpg",
+    photo: Cruise,
     films: ["Фильм 1", "Фильм 3"],
     biography: "Краткая биография Актера 3...",
   },
